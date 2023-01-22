@@ -22,6 +22,11 @@ EXPOSE 4000
 # The app will run on port 4000, just for documentation.
 
 
+#CMD [ "npm", "start" ]
+#Run the App using npm
+
+CMD [ "npm", "run", "start-dev" ]
+#Run the App using npm
 
 #Dockerfile: build -> image: Run -> containers 
 
@@ -62,3 +67,16 @@ EXPOSE 4000
 
 # Docker Optimization 
 # 1. create .dockerignore to avoid useless files
+
+
+# To make the server detect all the changes will use CMD [ "npm", "run", "start-dev" ]
+
+
+
+# To see the logs of the container 
+# sudo docker logs  express-node-app-container
+
+# To sync between the local env and the container
+# sudo docker run --name express-node-app-container -v local dir:contaoner dir -d -p 4000:4000 express-node-app
+# sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app
+
