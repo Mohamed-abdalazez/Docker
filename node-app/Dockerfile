@@ -25,11 +25,13 @@ CMD [ "npm", "start" ]
 #Run the App
 
 
+#Dockerfile: build -> image: Run -> containers 
+
 # Command lines
 
-# build: sudo docker build -t express-node-app . -> -t "name"
+# build: sudo docker build -t express-node-app . (-t "name")
 
-# after build the Dockerfile -> you have an "image" now
+# after build the Dockerfile (you have an "image" now)
 
 # list all images
 # sudo docker image ls
@@ -39,6 +41,7 @@ CMD [ "npm", "start" ]
 
 # remove container 
 # sudo docker rm "the name of container"
+# sudo docker rm express-node-app-container -f
 
 # Run the container 
 # sudo run --name "name of the container" "name of image" 
