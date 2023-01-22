@@ -52,3 +52,15 @@ CMD [ "npm", "start" ]
 # Forward the port
 # sudo docker run --name express-node-app-container -d -p "port my local machine:contaoner port" express-node-app
 # sudo docker run --name express-node-app-container -d -p 4000:4000 express-node-app
+
+
+# Open an interactive terminal in the container.
+# docker exec -it "name of the container" bash
+# sudo docker exec -it express-node-app-container bash
+#
+# root@dee98138027a:/app# ls
+# Dockerfile  index.js  node_modules  package-lock.json  package.json
+# root@dee98138027a:/app#
+
+# Docker Optimization 
+# 1. create .dockerignore to avoid useless files
