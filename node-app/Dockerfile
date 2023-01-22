@@ -21,8 +21,6 @@ EXPOSE 4000
 
 # The app will run on port 4000, just for documentation.
 
-CMD [ "npm", "start" ]
-#Run the App
 
 
 #Dockerfile: build -> image: Run -> containers 
