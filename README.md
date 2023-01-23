@@ -1,5 +1,6 @@
 # Docker
 
+## Basic Dockerfile 
 ```
 FROM node:14
 
@@ -41,3 +42,7 @@ Run the App using npm.
 
 #### 8. ```CMD [ "npm", "run", "start-dev" ] ```
 Run the App using nodemon.
+
+
+## Basic Command Lines
+
