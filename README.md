@@ -1,14 +1,41 @@
 # Docker
 
+```
+FROM node:14
 
-### 1. ```FROM node:14```
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install 
+
+COPY . .
+
+EXPOSE 4000
+
+CMD [ "npm", "start" ]
+
+```
+
+
+#### 1. ```FROM node:14```
 Inside the container, install node js.
 
-### 2. ```WORKDIR /app```
+#### 2. ```WORKDIR /app```
 Create Folder "app".
 
-### 3. ```COPY package.json .```
+#### 3. ```COPY package.json .```
 copy package.json inside "app" Folder.
 
-### 4. ```RUN npm install ```
+#### 4. ```RUN npm install ```
 RUN nmp install to install all the packages inside package.json -> node_modules.
+
+#### 5. ```COPY . . ```
+Copy all files inside the container.
+
+#### 6. ```EXPOSE 4000 ```
+The app will run on port 4000, just for documentation.
+
+#### 7. ```CMD [ "npm", "start" ] ```
+Run the App using npm.
+
