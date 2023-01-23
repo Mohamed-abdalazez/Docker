@@ -39,3 +39,5 @@ The app will run on port 4000, just for documentation.
 #### 7. ```CMD [ "npm", "start" ] ```
 Run the App using npm.
 
+#### 8. ```CMD [ "npm", "run", "start-dev" ] ```
+Run the App using nodemon.
