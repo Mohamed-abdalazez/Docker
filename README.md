@@ -46,3 +46,8 @@ Run the App using nodemon.
 
 ## Basic Command Lines
 
+#### 1. ``` docker build -t "name of the Dockerfile" .```
+- example → docker build -t express-node-app .
+- After build the Dockerfile (you have an "image" now).
+- Dockerfile → bulid → image.
+
