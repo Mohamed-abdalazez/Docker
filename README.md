@@ -86,3 +86,17 @@ root@dee98138027a:/app# ls
 Dockerfile  index.js  node_modules  package-lock.json  package.json
 root@dee98138027a:/app#
 ```
+#### 9. ```docker logs "the name of container"```
+- example:- ```docker logs  express-node-app-container```.
+- To see the logs of the container.
+
+## Docker Optimization
+- Create ```.dockerignore``` to avoid useless files.
+- To make the server detect all the changes will use ```CMD [ "npm", "run", "start-dev" ]```(Run the App using nodemon).
+
+## Hot Reload
+- syncing between the local environment and the container.
+- When you run the container, use that ```sudo run --name "name of the container" -v local dir:contaoner dir -d -p my local machine port:container port "name of image"```.
+- example:- ```sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
+- But what are the problems here?
+   -
