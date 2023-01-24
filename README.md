@@ -20,7 +20,6 @@ CMD [ "npm", "start" ]
 
 ```
 
-
 #### 1. ```FROM node:14```
 Inside the container, install node js.
 
@@ -45,6 +44,9 @@ Run the App using npm.
 #### 8. ```CMD [ "npm", "run", "start-dev" ] ```
 Run the App using nodemon.
 
+- Check out the figure for more explanation.
+
+<img alt="Dockerfile" src="assets/Dockerfile.png" />
 
 ## Basic Command Lines
 
