@@ -75,4 +75,14 @@ Run the App using nodemon.
 - list all the running containers.
 
 #### 7. ```docker rm "the name of container" -f```
-- example:- ```sudo docker rm express-node-app-container -f```. 
+- example:- ```sudo docker rm express-node-app-container -f```.
+
+#### 8. ```docker exec -it "name of the container" bash```
+- example:- ```sudo docker exec -it express-node-app-container bash```.
+- Open an interactive terminal in the container.
+- Your terminal now:
+``` 
+root@dee98138027a:/app# ls
+Dockerfile  index.js  node_modules  package-lock.json  package.json
+root@dee98138027a:/app#
+```
