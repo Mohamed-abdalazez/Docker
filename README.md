@@ -1,4 +1,6 @@
-# ***Docker***
+# Docker Practical Course - [Tresmerge](https://www.youtube.com/watch?v=tHP5IWfqPKk&list=PLzNfs-3kBUJnY7Cy1XovLaAkgfjim05RR&index=1)
+
+- first of all you have to install install [Docker desktop](https://docs.docker.com/).
 
 ## Basic Dockerfile 
 ```
