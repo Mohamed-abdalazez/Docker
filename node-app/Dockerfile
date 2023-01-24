@@ -27,14 +27,3 @@ EXPOSE 4000
 
 CMD [ "npm", "run", "start-dev" ]
 #Run the App using npm
-
-
-
-
-
-
-
-# To sync between the local env and the container
-# sudo docker run --name express-node-app-container -v local dir:contaoner dir -d -p 4000:4000 express-node-app
-# sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app
-
