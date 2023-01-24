@@ -90,6 +90,12 @@ root@dee98138027a:/app#
 - example:- ```docker logs  express-node-app-container```.
 - To see the logs of the container.
 
+## The difference between images and containers
+
+- Check out the figure
+
+<img alt="ImagesVScontainers" src="assets/ImagesVScontainers.png" />
+
 ## Docker Optimization
 - Create ```.dockerignore``` to avoid useless files.
 - To make the server detect all the changes will use ```CMD [ "npm", "run", "start-dev" ]```(Run the App using nodemon).
