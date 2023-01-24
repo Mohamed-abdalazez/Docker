@@ -50,8 +50,29 @@ Run the App using nodemon.
 
 ## Basic Command Lines
 
-#### 1. ``` docker build -t "name of the Dockerfile" .```
-- example → docker build -t express-node-app .
+#### 1. ``` docker build -t "name of the Dockerfile" ```
+- example:- ```docker build -t express-node-app .```
 - After build the Dockerfile (you have an "image" now).
-- Dockerfile → bulid → image.
+- Dockerfile → bulid → image → Run → Container.
 
+#### 2. ``` docker run --name "name of the container" "name of image" ```
+- example:- ```docker run --name express-node-app-container express-node-app```, 1st way.
+- example:- ```docker run --name express-node-app-container -d express-node-app```, 2nd way, What is new here is the flag ```-d``` for detach the logs.
+
+#### 3. ``` docker run --name "name of the container" "name of image" ```
+- example:- ```docker run --name express-node-app-container express-node-app```, 1st way.
+- example:- ```docker run --name express-node-app-container -d express-node-app```, 2nd way, What is new here is the flag ```-d``` for detach the logs.
+- Now, if you run the app on your localhost, it doesn't work. You have to ***forward the port*** first. How?! , See the following command line.
+
+
+#### 4. ```sudo run --name "name of the container" -d -p my local machine port:container port "name of image"  ```
+- example:- ```docker run --name express-node-app-container -d -p 4000:4000 express-node-app```
+
+#### 5. ```docker image ls```
+- list all images.
+
+#### 6. ```docker image ls```
+- list all the running containers.
+
+#### 7. ```docker rm "the name of container" -f```
+- example:- ```sudo docker rm express-node-app-container -f```. 
