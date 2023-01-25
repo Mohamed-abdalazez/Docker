@@ -42,7 +42,7 @@ The app will run on port 4000, just for documentation.
 Run the App using npm.
 
 #### 8. ```CMD [ "npm", "run", "start-dev" ] ```
-Run the App using nodemon.
+Run the App using nodemon, To make the server detect all the changes.
 
 - Check out the figure for more explanation.
 
@@ -98,7 +98,10 @@ root@dee98138027a:/app#
 
 ## Docker Optimization
 - Create ```.dockerignore``` to avoid useless files.
-- To make the server detect all the changes will use ```CMD [ "npm", "run", "start-dev" ]```(Run the App using nodemon).
+- Why was the package.json file copied first and then all the other files copied again?
+- Good question; check the figure for the answer.
+
+<img alt="package" src="assets/package.png.png" />
 
 ## Hot Reload
 - syncing between the local environment and the container.
