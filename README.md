@@ -101,7 +101,7 @@ root@dee98138027a:/app#
 - Why was the package.json file copied first and then all the other files copied again?
 - Good question; check the figure for the answer.
 
-<img alt="package" src="assets/package.png.png" />
+<img alt="package" src="assets/package.png" />
 
 ## Hot Reload
 - syncing between the local environment and the container.
