@@ -1,8 +1,24 @@
 # Docker Practical Course - [Tresmerge](https://www.youtube.com/watch?v=tHP5IWfqPKk&list=PLzNfs-3kBUJnY7Cy1XovLaAkgfjim05RR&index=1)
 
+
+### Table of content
+
+1. [Docker desktop](#desc0)
+2. [Basic Dockerfile](#desc1)
+3. [Basic Command Lines](#desc2)
+4. [The difference between images and containers](#desc3)
+5. [Docker Optimization](#desc4)
+6. [Hot Reload](#desc5)
+
+
+<a name="desc0"></a>
+## Docker desktop
+
 - First of all, you have to install [Docker desktop](https://docs.docker.com/) on your machine.
 
-## Basic Dockerfile 
+
+<a name="desc1"></a>
+## Basic Dockerfile
 ```
 FROM node:14
 
@@ -48,6 +64,7 @@ Run the App using nodemon, To make the server detect all the changes.
 
 <img alt="Dockerfile" src="assets/Dockerfile.png" />
 
+<a name="desc2"></a>
 ## Basic Command Lines
 
 #### 1. ``` docker build -t "name of the Dockerfile" ```
@@ -90,19 +107,22 @@ root@dee98138027a:/app#
 - example:- ```docker logs  express-node-app-container```.
 - To see the logs of the container.
 
+<a name="desc3"></a>
 ## The difference between images and containers
 
 - Check out the figure
 
 <img alt="ImagesVScontainers" src="assets/ImagesVScontainers.png" />
 
+<a name="desc4"></a>
 ## Docker Optimization
 - Create ```.dockerignore``` to avoid useless files.
 - Why was the package.json file copied first and then all the other files copied again?
 - Good question; check the figure for the answer.
 
-<img alt="package" src="assets/package.png.png" />
+<img alt="package" src="assets/package.png" />
 
+<a name="desc5"></a>
 ## Hot Reload
 - syncing between the local environment and the container.
 - When you run the container, use that ```sudo run --name "name of the container" -v local dir:contaoner dir -d -p my local machine port:container port "name of image"```.
