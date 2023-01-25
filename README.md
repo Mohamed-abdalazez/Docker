@@ -1,14 +1,21 @@
 # Docker Practical Course - [Tresmerge](https://www.youtube.com/watch?v=tHP5IWfqPKk&list=PLzNfs-3kBUJnY7Cy1XovLaAkgfjim05RR&index=1)
 
-- First of all, you have to install [Docker desktop](https://docs.docker.com/) on your machine.
 
 ### Table of content
 
-1. [Basic Dockerfile](#desc1)
-2. [Basic Command Lines](#desc2)
-3. [The difference between images and containers](#desc3)
-4. [Docker Optimization](#desc4)
-5. [Hot Reload](#desc5)
+1. [Docker desktop](#desc0)
+2. [Basic Dockerfile](#desc1)
+3. [Basic Command Lines](#desc2)
+4. [The difference between images and containers](#desc3)
+5. [Docker Optimization](#desc4)
+6. [Hot Reload](#desc5)
+
+
+<a name="desc0"></a>
+## Docker desktop
+
+- First of all, you have to install [Docker desktop](https://docs.docker.com/) on your machine.
+
 
 <a name="desc1"></a>
 ## Basic Dockerfile
