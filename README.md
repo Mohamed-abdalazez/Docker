@@ -107,6 +107,9 @@ root@dee98138027a:/app#
 - example:- ```docker logs  express-node-app-container```.
 - To see the logs of the container.
 
+#### 10. ```docker --help```
+- For all command-line details.
+
 <a name="desc3"></a>
 ## The difference between images and containers
 
