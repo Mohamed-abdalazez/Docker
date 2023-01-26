@@ -125,8 +125,8 @@ root@dee98138027a:/app#
 <a name="desc5"></a>
 ## Hot Reload
 - syncing between the local environment and the container.
-- When you run the container, use that ```sudo run --name "name of the container" -v local dir:contaoner dir -d -p my local machine port:container port "name of image"```.
+- When you run the container, use that ```sudo run --name "name of the container"``` ```-v``` ***absolute path for your local directory***:***Whatever directory is inside the container you want to sync with*** ```-d -p my local machine port:container port "name of image"```.
 - example:- ```sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
 - But what are the problems here?
-    - 1
+    - If you add or delete files inside the container or on the local machine, this will change both sides at the same time.
  
