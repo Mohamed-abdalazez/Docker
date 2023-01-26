@@ -9,7 +9,7 @@
 4. [The difference between images and containers](#desc3)
 5. [Docker Optimization](#desc4)
 6. [Hot Reload](#desc5)
-
+7. [Volumes](#desc6)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -136,3 +136,5 @@ root@dee98138027a:/app#
 - But what are the problems here?
     - If you add or delete files inside the container or on the local machine, this will change both sides at the same time.
  
+<a name="desc6"></a>
+## Volumes
