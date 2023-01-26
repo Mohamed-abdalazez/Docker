@@ -128,4 +128,5 @@ root@dee98138027a:/app#
 - When you run the container, use that ```sudo run --name "name of the container" -v local dir:contaoner dir -d -p my local machine port:container port "name of image"```.
 - example:- ```sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
 - But what are the problems here?
-   -
+    - 1
+ 
