@@ -113,7 +113,7 @@ root@dee98138027a:/app#
 <a name="desc3"></a>
 ## The difference between images and containers
 
-- Check out the figure
+- Check out the figure.
 
 <img alt="ImagesVScontainers" src="assets/ImagesVScontainers.png" />
 
@@ -138,3 +138,9 @@ root@dee98138027a:/app#
  
 <a name="desc6"></a>
 ## Volumes
+- When do we need Docker Volumes?
+- Check out the figure.
+
+<img alt="Docker Volumes" src="assets/Docker Volumes.png" />
+
+
