@@ -8,8 +8,8 @@
 3. [Basic Command Lines.](#desc2)
 4. [The difference between images and containers.](#desc3)
 5. [Docker Optimization.](#desc4)
-6. [Hot Reload.](#desc5)
-7. [Volumes.](#desc6)
+6. [Volumes.](#desc5)
+7. [Hot Reload.](#desc6)
 8. [Docker Compose.](#desc7)
 
 <a name="desc0"></a>
@@ -127,6 +127,15 @@ root@dee98138027a:/app#
 <img alt="package" src="assets/package.png" />
 
 <a name="desc5"></a>
+## Volumes
+- When do we need Docker Volumes?
+- What exactly is Docker Volumes?
+- Docker Volumes Types.
+- Check out the figure.
+
+<img alt="Docker Volumes" src="assets/Docker Volumes.png" />
+
+<a name="desc6"></a>
 ## Hot Reload
 - syncing between the local environment and the container.
 - When you run the container, use that ```run --name "name of the container"``` ```-v``` ***absolute path for your local directory***:***Whatever directory is inside the container you want to sync with*** ```-d -p my local machine port:container port "name of image"```.
@@ -137,15 +146,6 @@ root@dee98138027a:/app#
 - But what are the problems here?
     - If you add or delete files inside the container or on the local machine, this will change both sides at the same time.
  
-<a name="desc6"></a>
-## Volumes
-- When do we need Docker Volumes?
-- What exactly is Docker Volumes?
-- Docker Volumes Types.
-- Check out the figure.
-
-<img alt="Docker Volumes" src="assets/Docker Volumes.png" />
-
 
 <a name="desc7"></a>
 ## Docker Compose
