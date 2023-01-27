@@ -3,13 +3,14 @@
 
 ### Table of content
 
-1. [Docker desktop](#desc0)
-2. [Basic Dockerfile](#desc1)
-3. [Basic Command Lines](#desc2)
-4. [The difference between images and containers](#desc3)
-5. [Docker Optimization](#desc4)
-6. [Hot Reload](#desc5)
-7. [Volumes](#desc6)
+1. [Docker desktop.](#desc0)
+2. [Basic Dockerfile.](#desc1)
+3. [Basic Command Lines.](#desc2)
+4. [The difference between images and containers.](#desc3)
+5. [Docker Optimization.](#desc4)
+6. [Hot Reload.](#desc5)
+7. [Volumes.](#desc6)
+8. [Docker Compose.](#desc7)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -144,3 +145,5 @@ root@dee98138027a:/app#
 <img alt="Docker Volumes" src="assets/Docker Volumes.png" />
 
 
+<a name="desc7"></a>
+## Docker Compose
