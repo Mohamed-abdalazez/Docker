@@ -140,6 +140,8 @@ root@dee98138027a:/app#
 <a name="desc6"></a>
 ## Volumes
 - When do we need Docker Volumes?
+- What exactly is Docker Volumes?
+- Docker Volumes Types.
 - Check out the figure.
 
 <img alt="Docker Volumes" src="assets/Docker Volumes.png" />
