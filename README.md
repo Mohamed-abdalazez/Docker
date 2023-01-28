@@ -141,8 +141,8 @@ root@dee98138027a:/app#
 - When you run the container, use that ```run --name "name of the container"``` ```-v``` ***absolute path for your local directory***:***Whatever directory is inside the container you want to sync with*** ```-d -p my local machine port:container port "name of image"```.
 - example:- ```sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
 - Also, you can use this instead of the full path:
-    - Linux and mac: ```$(pwd)```, The command line will be as follows: ```docker run --name express-node-app-container -v ${pwd}:/app -d -p 4000:4000 express-node-app```.
-    - Windows: ```%cd%```, The command line will be as follows: ```docker run --name express-node-app-container -v %{cd}%:/app -d -p 4000:4000 express-node-app```.
+    - Linux and mac: ```$(pwd)```, The command line will be as follows: ```docker run --name express-node-app-container -v $(pwd):/app -d -p 4000:4000 express-node-app```.
+    - Windows: ```%cd%```, The command line will be as follows: ```docker run --name express-node-app-container -v %cd%:/app -d -p 4000:4000 express-node-app```.
 - But what are the problems here?
     - If you add or delete files inside the container or on the local machine, this will change both sides at the same time.
     - One suggested solution is to sync or bind the application source code on your localhost with the application source code in the container,      considering that you make the directory in the container read-only.
