@@ -156,6 +156,5 @@ root@dee98138027a:/app#
     - Docker Compose is a tool for defining and running multi-container Docker applications.by using a ```YAML file``` to configure your application services. 
     Then, with a single command, you create and start all the services in your configuration.
 - Check out the figure.
-- 
 <img alt="docker-compose" src="assets/Docker Compose.png" />
 
