@@ -83,7 +83,7 @@ Run the App using nodemon, To make the server detect all the changes.
 - Now, if you run the app on your localhost, it doesn't work. You have to ***forward the port*** first. How?! , See the following command line.
 
 
-#### 4. ```sudo run --name "name of the container" -d -p my local machine port:container port "name of image"  ```
+#### 4. ```docker run --name "name of the container" -d -p my local machine port:container port "name of image"  ```
 - example:- ```docker run --name express-node-app-container -d -p 4000:4000 express-node-app```
 
 #### 5. ```docker image ls```
@@ -93,10 +93,10 @@ Run the App using nodemon, To make the server detect all the changes.
 - list all the running containers.
 
 #### 7. ```docker rm "the name of container" -f```
-- example:- ```sudo docker rm express-node-app-container -f```.
+- example:- ```docker rm express-node-app-container -f```.
 
 #### 8. ```docker exec -it "name of the container" bash```
-- example:- ```sudo docker exec -it express-node-app-container bash```.
+- example:- ```docker exec -it express-node-app-container bash```.
 - Open an interactive terminal in the container.
 - Your terminal now:
 ``` 
@@ -139,7 +139,7 @@ root@dee98138027a:/app#
 ## Hot Reload
 - syncing between the local environment and the container.
 - When you run the container, use that ```run --name "name of the container"``` ```-v``` ***absolute path for your local directory***:***Whatever directory is inside the container you want to sync with*** ```-d -p my local machine port:container port "name of image"```.
-- example:- ```sudo docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
+- example:- ```docker run --name express-node-app-container -v /home/mohamed/Desktop/Safrot/Projects/Docker/node-app:/app -d -p 4000:4000 express-node-app```.
 - Also, you can use this instead of the full path:
     - Linux and mac: ```$(pwd)```, The command line will be as follows: ```docker run --name express-node-app-container -v $(pwd):/app -d -p 4000:4000 express-node-app```.
     - Windows: ```%cd%```, The command line will be as follows: ```docker run --name express-node-app-container -v %cd%:/app -d -p 4000:4000 express-node-app```.
@@ -147,7 +147,7 @@ root@dee98138027a:/app#
     - If you add or delete files inside the container or on the local machine, this will change both sides at the same time.
     - One suggested solution is to sync or bind the application source code on your localhost with the application source code in the container,      considering that you make the directory in the container read-only.
     - example: 
-        - ```sudo docker run --name express-node-app-container -v $(pwd)/src:/app/src:ro -d -p 4000:4000 express-node-app```
+        - ```docker run --name express-node-app-container -v $(pwd)/src:/app/src:ro -d -p 4000:4000 express-node-app```
  
 
 <a name="desc7"></a>
