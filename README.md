@@ -259,3 +259,11 @@ services:
 - The first method and the optimization.
 - Check out the figure.
 <img alt="Docker environment management" src="assets/Docker environment management.png" />
+
+- the command lines in the figure, to be copied if you want
+   - ```Run: docker-compose -f docker-compose.dev.yml up -d```
+   - ```Run: docker-compose -f docker-compose.prod.yml up -d```
+   - ```Development Run: sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```
+   - ```Production Run: sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d```
+   - ```docker exec -it express-node-app-container bash```
+
