@@ -13,6 +13,7 @@
 8. [Docker Compose.](#desc7)
 9. [Environment Variables.](#desc8)
 10. [Docker Environments Management.](#desc9)
+11. [Multi-Stage Dockerfile.](#desc10)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -252,7 +253,6 @@ services:
     ```
 
 <a name="desc9"></a>
-
 ## Docker Environments Management
 
 - Docker environment management across multiple environments.
@@ -267,3 +267,8 @@ services:
    - ```Production Run: sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d```
    - ```docker exec -it express-node-app-container bash```
 
+<a name="desc10"></a>
+## Multi-Stage Dockerfile
+
+- The first solution is that you can create a Dockerfile for each environment.
+- The second solution is that you can create a single Docker file and manage all environments through it.
