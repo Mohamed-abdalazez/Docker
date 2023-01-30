@@ -12,6 +12,7 @@
 7. [Hot Reload.](#desc6)
 8. [Docker Compose.](#desc7)
 9. [Environment Variables.](#desc8)
+10. [Docker Environments Management.](#desc9)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -249,4 +250,7 @@ services:
          env_file:
           - ./.env
     ```
-   
+
+<a name="desc9"></a>
+
+## Docker Environments Management
