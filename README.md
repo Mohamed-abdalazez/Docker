@@ -274,4 +274,4 @@ services:
 - The second solution is that you can create a single Docker file and manage all environments through it.
     - in the last part we faced tow proplems 
         -  Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
-        -  We have to run npm in production and nodemon in development.
+        -  We have to run ```CMD [ "npm", "start" ]``` in production and ```CMD [ "npm", "run", "start-dev" ]``` in development.
