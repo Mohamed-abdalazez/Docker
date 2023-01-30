@@ -175,3 +175,44 @@ services:
 
 <a name="desc8"></a>
 ## Environment Variables.
+
+- How to pass environment variables to the container?
+    1. Via the Dockerfile itself, as follows:
+        - You'll notice here that we used ```ENV PORT=4000``` inside the Docker file itself.
+    ```
+    FROM node:14
+
+    WORKDIR /app
+
+    COPY package.json .
+
+    RUN npm install 
+
+    COPY . .
+    
+    ENV PORT=4000
+
+    EXPOSE $PORT
+
+    CMD [ "npm", "run", "start-dev" ]
+
+    ```
+    2. Via the command line, as follows:
+    ```
+    --env list                       Set environment variables
+    --env-file list                  Read in a file of environment variables
+    ```
+     - eg:
+    ```
+    - Set environment variables:
+    docker run --name express-node-app-container -v $(pwd)/src:/app/src:ro --env PORT=400 --env NODE_ENV=development -d -p 4000:4000 express-node-app
+    - Read in a file of environment variables:
+    ocker run --name express-node-app-container -v $(pwd)/src:/app/src:ro --env-file ./.env -d -p 4000:4000 express-node-app
+    ```
+    - So, if you open an interactive terminal in the container and use printenv, you will find your env variables.
+    ```
+    $ docker exec -it express-node-app-container bash
+    root@78ca00db2d62:/app# printenv
+    PORT=400
+    NODE_ENV=development
+    ```
