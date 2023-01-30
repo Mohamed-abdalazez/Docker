@@ -7,3 +7,5 @@ services:
       - ./src:/app/src:ro
     ports: 
       - "4000:4000"
+    env_file:
+      - ./.env
