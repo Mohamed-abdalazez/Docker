@@ -254,3 +254,8 @@ services:
 <a name="desc9"></a>
 
 ## Docker Environments Management
+
+- Docker environment management across multiple environments.
+- The first method and the optimization.
+- Check out the figure.
+<img alt="Docker environment management" src="assets/Docker environment management.png" />
