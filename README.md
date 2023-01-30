@@ -216,3 +216,37 @@ services:
     PORT=400
     NODE_ENV=development
     ```
+    3. Via the docker-compose, as follows:
+      
+     - Set environment variables.
+    ```
+    version: "3"
+    services:
+        node-app: 
+         container_name: express-node-app-container
+         build: .
+         volumes:
+          - ./src:/app/src:ro
+         ports: 
+          - "4000:4000"
+         environment:
+          - Port=4000
+          - NODE_ENV=production
+    ```
+    - Read in a file of environment variables.
+    
+    
+   ```
+    version: "3"
+    services:
+        node-app: 
+         container_name: express-node-app-container
+         build: .
+         volumes:
+          - ./src:/app/src:ro
+         ports: 
+          - "4000:4000"
+         env_file:
+          - ./.env
+    ```
+   
