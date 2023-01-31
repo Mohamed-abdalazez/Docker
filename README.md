@@ -298,8 +298,21 @@ services:
      ``` 
      - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
      
-       - Make a simple check to verify the environment.
+       - Make a simple check to verify the environment.<br>
+ 
+          <img alt="simple check.png" src="assets/simple check.png" />  <br>
           
-          <img alt="simple check.png" src="assets/simple check.png" />
+            - the command lines in the figure, to be copied if you want.<br>
+                 -  simple check <br>
+                ```
+                RUN if ["$NODE_ENV" = 'production'];\
+                then nmp install --only=production;\
+                else npm install;\
+                fi
+                ```
+                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
+
+                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
+          
        
-       - Make a simple check to verify the environment.
+       - The Multi-Stage environment.
