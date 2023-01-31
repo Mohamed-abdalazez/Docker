@@ -297,3 +297,5 @@ services:
        command: npm run start
      ``` 
      - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
+     
+       - Make a simple check to verify the environment.
