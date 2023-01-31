@@ -299,3 +299,7 @@ services:
      - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
      
        - Make a simple check to verify the environment.
+          
+          <img alt="simple check.png" src="assets/simple check.png" />
+       
+       - Make a simple check to verify the environment.
