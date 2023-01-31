@@ -315,4 +315,5 @@ services:
                 - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
           
        
-       - The Multi-Stage environment.
+       - The Multi-Stage environment.<br>
+         - The Multi-Stage environment is when you separate the Dockerfile for more than one stage.
