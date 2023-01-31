@@ -317,3 +317,35 @@ services:
        
        - The Multi-Stage environment.<br>
          - The Multi-Stage environment is when you separate the Dockerfile for more than one stage.
+         - Check out the figure.
+         
+              <img alt="Multi-Stage environment" src="assets/Multi-Stage environment.png" />  <br>
+          
+          - the command lines in the figure, to be copied if you want.<br>
+            -  Docker File with multistage<br>
+              
+                ```
+                FROM node:14 as base
+
+                FROM base as development
+
+                WORKDIR /app
+                COPY package.json .
+                RUN npm install 
+                COPY . .
+                EXPOSE 4000
+                CMD [ "npm", "run", "start-dev" ]
+
+                FROM base as production
+
+                WORKDIR /app
+                COPY package.json .
+                RUN npm install --only=production 
+                COPY . .
+                EXPOSE 4000
+                CMD [ "npm", "start"]
+                ```
+                
+                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
+
+                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
