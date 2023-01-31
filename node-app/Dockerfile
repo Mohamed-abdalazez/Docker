@@ -7,9 +7,15 @@ WORKDIR /app
 
 COPY package.json .
 
+ARG NODE_ENV
+
+RUN if ["$NODE_ENV" = 'production'];\
+    then nmp install --only=production;\
+    else npm install;\
+    fi
+
 # copy package.json inside "app" Folder
 
-RUN npm install 
 
 # RUN nmp install to install all the packages inside package.json -> node_modules
 
