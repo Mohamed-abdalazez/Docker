@@ -272,6 +272,34 @@ services:
 
 - The first solution is that you can create a Dockerfile for each environment.
 - The second solution is that you can create a single Docker file and manage all environments through it.
-    - in the last part we faced tow proplems 
-        -  Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
-        -  We have to run ```CMD [ "npm", "start" ]``` in production and ```CMD [ "npm", "run", "start-dev" ]``` in development.
+- in the last part we faced tow proplems 
+     -  We have to run ```CMD [ "npm", "start" ]``` in production and ```CMD [ "npm", "run", "start-dev" ]``` in development.
+    <br>
+    
+    ``` 
+    development:
+     version: "3"
+     services:
+      node-app:
+       volumes:
+         - ./src:/app/src:ro
+       environment:
+         - NODE_ENV=development
+       command: npm run start-dev
+     ``` 
+     ``` 
+    production:
+     version: "3"
+     services:
+      node-app:
+       environment:
+         - NODE_ENV=production
+       command: npm run start
+     ``` 
+     - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
+     
+       - Make a simple check to verify the environment.
+          
+          <img alt="simple check.png" src="assets/simple check.png" />
+       
+       - Make a simple check to verify the environment.
