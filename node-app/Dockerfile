@@ -1,35 +1,19 @@
-FROM node:14
-# Inside the container, install node js
+FROM node:14 as base
+
+FROM base as development
 
 WORKDIR /app
-
-# Create Folder "app"
-
 COPY package.json .
-
-ARG NODE_ENV
-
-RUN if ["$NODE_ENV" = 'production'];\
-    then nmp install --only=production;\
-    else npm install;\
-    fi
-
-# copy package.json inside "app" Folder
-
-
-# RUN nmp install to install all the packages inside package.json -> node_modules
-
+RUN npm install 
 COPY . .
-
-# Copy all files inside the container
-
 EXPOSE 4000
-
-# The app will run on port 4000, just for documentation.
-
-
-#CMD [ "npm", "start" ]
-#Run the App using npm
-
 CMD [ "npm", "run", "start-dev" ]
-#Run the App using npm
+
+FROM base as production
+
+WORKDIR /app
+COPY package.json .
+RUN npm install --only=production 
+COPY . .
+EXPOSE 4000
+CMD [ "npm", "start"]
