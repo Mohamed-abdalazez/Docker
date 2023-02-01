@@ -16,7 +16,7 @@ const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
 
 mongoose
   .connect(URI)
-  .then(() => console.log("connect to db..."))
+  .then(() => console.log("connected to db..."))
   .catch((err) => console.log("failed to connect to db: ", err));
 
 app.get("/", (req, res) =>
