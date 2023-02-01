@@ -14,7 +14,7 @@
 9. [Environment Variables.](#desc8)
 10. [Docker Environments Management.](#desc9)
 11. [Multi-Stage Dockerfile.](#desc10)
-12. [Docker with MongoDB & NodeJS & Mongo-Express](#desc11)
+12. [Docker with MongoDB & NodeJS & Mongo-Express.](#desc11)
 
 <a name="desc0"></a>
 ## Docker desktop
