@@ -357,4 +357,5 @@ services:
 
 - You can find the code in the node-app-mongo folder.
 - Check out the figure.
+
     <img alt="MongoDB & NodeJS & Mongo-Express" src="assets/MongoDB & NodeJS & Mongo-Express.png" />
