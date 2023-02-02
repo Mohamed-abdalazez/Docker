@@ -14,7 +14,10 @@
 9. [Environment Variables.](#desc8)
 10. [Docker Environments Management.](#desc9)
 11. [Multi-Stage Dockerfile.](#desc10)
-12. [Docker with MongoDB & NodeJS & Mongo-Express.](#desc11)
+12. [Docker with different services](#desc11)
+    - MongoDB
+    - NodeJS
+    - Mongo-Express
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -352,10 +355,11 @@ services:
                 - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
 
 <a name="desc11"></a>
-## Docker with MongoDB & NodeJS & Mongo-Express
+## Docker with different services
 
 
-- You can find the code in the node-app-mongo folder.
+- You can find the code in the ```Services``` folder.
+- MongoDB & NodeJS & Mongo-Express.
 - Check out the figure.
 
     <img alt="MongoDB & NodeJS & Mongo-Express_1" src="assets/MongoDB & NodeJS & Mongo-Express_1.png" /><br><br>
