@@ -367,4 +367,28 @@ services:
     <img alt="MongoDB & NodeJS & Mongo-Express_3" src="assets/MongoDB & NodeJS & Mongo-Express_3.png" /><br><br>
     <img alt="MongoDB & NodeJS & Mongo-Express_4" src="assets/MongoDB & NodeJS & Mongo-Express_4.png" /><br><br>
     
+- Some command lines you have to know here are:
+   - ```sudo docker inspect "name of the container"```, Return low-level information on Docker objects.
+   - ```sudo docker volume ls```, List volumes.
+   - ```sudo docker volume prune```, Remove all unused local volumes.
+   - And always remember that if you use ```--help``` after any utility, you will get more information about all command lines.
+   
+     - eg. ```docker volume --help```
+     <br>
+     
+     ```
+     Usage:  docker volume COMMAND
+
+     Manage volumes
+
+     Commands:
+     create      Create a volume
+     inspect     Display detailed information on one or more volumes
+     ls          List volumes
+     prune       Remove all unused local volumes
+     rm          Remove one or more volumes
+     
+     Run 'docker volume COMMAND --help' for more information on a command.
+     
+     ```
 
