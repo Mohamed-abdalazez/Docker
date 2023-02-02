@@ -393,4 +393,9 @@ services:
      
      ```
 - [Redis](https://redis.io/).
-
+    - As we have learned, go to the Docker Hub and search for Redis; you will find the official version. You can find how to add the service in the documentation.
+    - Now add the new container to ```docker-compose.yml```.As we did in the last part. 
+    
+    <br>
+    <img alt="addRedisContainer" src="assets/addRedisContainer.png" />
+   
