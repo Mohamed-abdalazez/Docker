@@ -6,6 +6,8 @@ services:
       - "4000:4000"
     env_file:
       - ./.env
+    depends_on:
+      - mongo
 
   mongo:
    image: mongo
@@ -24,8 +26,9 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
-  
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/ 
+    depends_on:
+      - mongo
   redis:
     image: redis
 
