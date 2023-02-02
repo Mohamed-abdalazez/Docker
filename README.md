@@ -15,9 +15,10 @@
 10. [Docker Environments Management.](#desc9)
 11. [Multi-Stage Dockerfile.](#desc10)
 12. [Docker with different services](#desc11)
-    - MongoDB
-    - NodeJS
-    - Mongo-Express
+    - MongoDB.
+    - NodeJS.
+    - Mongo-Express.
+    - Redis.
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -359,7 +360,7 @@ services:
 
 
 - You can find the code in the ```Services``` folder.
-- MongoDB & NodeJS & Mongo-Express.
+- [MongoDB](https://www.mongodb.com/) & [NodeJS](https://nodejs.org/en/) & [Mongo-Express](https://github.com/mongo-express/mongo-express).
 - Check out the figure.
 
     <img alt="MongoDB & NodeJS & Mongo-Express_1" src="assets/MongoDB & NodeJS & Mongo-Express_1.png" /><br><br>
@@ -391,4 +392,5 @@ services:
      Run 'docker volume COMMAND --help' for more information on a command.
      
      ```
+- [Redis](https://redis.io/).
 
