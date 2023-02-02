@@ -398,4 +398,23 @@ services:
     
     <br>
     <img alt="addRedisContainer" src="assets/addRedisContainer.png" />
-   
+    <br>
+    
+    - Now let's run the app, ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
+       
+       ```
+       Status: Downloaded newer image for redis:latest
+       Creating services_mongo-express_1   ... done
+       Creating express-node-app-container ... done
+       Creating services_mongo_1           ... done
+       Creating services_redis_1           ... done 
+       ```
+     - Important thing to remember, When you start running containers, it will start randomly, so if one container depends on another, you have to specify this.As follows:
+
+    <br>
+    <img alt="depends_on.png" src="assets/depends_on.png" />
+    <br>
+    
+    - lol
+
+     
