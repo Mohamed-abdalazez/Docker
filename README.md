@@ -478,7 +478,7 @@ services:
       mongo-db: 
       postgres-db:
     ```
-   - Connect to PostgresSQL:
+   - Connect to PostgreSQL:
 
      ```javascript
          const express = require("express");
