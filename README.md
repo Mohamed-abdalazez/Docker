@@ -524,3 +524,5 @@ services:
 - You can choose your sail services.
     - Go to the [Installation](https://laravel.com/docs/9.x#choosing-your-sail-services) and choose the suitable operating system.
     - ```curl -s https://laravel.build/example-app?with=mysql,redis | bash```, for Linux.
+    - After installation is done: Dive in with: ```cd example-app && ./vendor/bin/sail up```
+    - You can find the code in the ```Laravel Sail``` folder.
