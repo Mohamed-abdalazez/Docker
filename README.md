@@ -512,4 +512,4 @@ services:
     
         app.listen(PORT, () => console.log(`Hi Hi! from ${PORT}`));
         ```
-- Sure, you can search for more details about usage for each service. Here, it just explains how to communicate between Docker and different services.
+- Sure, you can search for more details about the usage of each service. Here, it just explains how to communicate between Docker and different services.
