@@ -19,6 +19,7 @@
     - NodeJS.
     - Mongo-Express.
     - Redis.
+    - Nginx.
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -414,7 +415,25 @@ services:
     <br>
     <img alt="depends_on.png" src="assets/depends_on.png" />
     <br>
+    <br>
     
-    - lol
-
+- [Nginx](https://www.nginx.com/)
+    - As we have learned, go to the Docker Hub and search for Nginx; you will find the official version. You can find how to add the service in the documentation.
+    - Now add the new container to ```docker-compose.yml```.As we are used to.
+    
+    <br>
+    <img alt="addNginxContainer" src="assets/addNginxContainer.png" />
+    <br>
+    
+    - Now let's run the app, ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
+       
+       ```
+        Status: Downloaded newer image for nginx:stable-alpine
+        Creating services_redis_1 ... done
+        Creating services_mongo_1 ... done
+        Creating services_nginx_1 ... done
+        Creating express-node-app-container ... done
+        Creating services_mongo-express_1   ... done
+       ```
+       
      
