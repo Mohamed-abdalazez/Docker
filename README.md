@@ -519,3 +519,8 @@ services:
 
 <a name="desc12"></a>
 ## Docker with Laravel
+
+- Laravel provides [Sail](https://laravel.com/docs/9.x/sail), a built-in solution for running your Laravel project using Docker.
+- You can choose your sail services.
+    - Go to the [Installation](https://laravel.com/docs/9.x#choosing-your-sail-services) and choose the suitable operating system.
+    - ```curl -s https://laravel.build/example-app?with=mysql,redis | bash```, for Linux.
