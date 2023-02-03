@@ -20,6 +20,7 @@
     - Mongo-Express.
     - Redis.
     - Nginx.
+    - PostgreSQL.
 
 <a name="desc0"></a>
 ## Docker desktop
