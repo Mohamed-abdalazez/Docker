@@ -436,4 +436,5 @@ services:
         Creating services_mongo-express_1   ... done
        ```
        
+    - Now let's make the nginx server receive the requests and forward them to my node-app.   
      
