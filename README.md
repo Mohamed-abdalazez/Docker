@@ -438,3 +438,10 @@ services:
        
     - Now let's make the nginx server receive the requests and forward them to my node-app.   
      
+       
+      <br>
+      <img alt="nginx.png" src="assets/nginx.png" />
+      <br>
+
+
+- Post
