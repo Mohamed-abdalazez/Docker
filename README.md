@@ -166,7 +166,7 @@ root@dee98138027a:/app#
     Then, with a single command, you create and start all the services in your configuration.
     
 - ```docker-compose.yml:```
- ``` 
+ ``` yaml
  version: "3"
 services:
   node-app: 
@@ -215,7 +215,7 @@ services:
     - Set environment variables:
     docker run --name express-node-app-container -v $(pwd)/src:/app/src:ro --env PORT=400 --env NODE_ENV=development -d -p 4000:4000 express-node-app
     - Read in a file of environment variables:
-    ocker run --name express-node-app-container -v $(pwd)/src:/app/src:ro --env-file ./.env -d -p 4000:4000 express-node-app
+    docker run --name express-node-app-container -v $(pwd)/src:/app/src:ro --env-file ./.env -d -p 4000:4000 express-node-app
     ```
     - So, if you open an interactive terminal in the container and use printenv, you will find your env variables.
     ```
@@ -227,7 +227,7 @@ services:
     3. Via the docker-compose, as follows:
       
      - Set environment variables.
-    ```
+    ```yaml
     version: "3"
     services:
         node-app: 
@@ -244,7 +244,7 @@ services:
     - Read in a file of environment variables.
     
     
-   ```
+   ```yaml
     version: "3"
     services:
         node-app: 
@@ -284,6 +284,8 @@ services:
     
     ``` 
     development:
+    ```
+    ```yaml
      version: "3"
      services:
       node-app:
@@ -295,6 +297,8 @@ services:
      ``` 
      ``` 
     production:
+    ```
+    ```yaml
      version: "3"
      services:
       node-app:
@@ -445,3 +449,66 @@ services:
 
 
 - [PostgreSQL](https://www.postgresql.org/)
+
+    - As we did in Mongo previously, go to the Docker Hub and search for PostgreSQL; you will find the official version. You can find how to add the service in the documentation.
+    - I'll just include docker-compose and how to connect to Postgresql here. and the explanation as above.
+    
+    - Add the Container:<br>
+
+    ```yaml
+    version: "3"
+    services:
+      node-app: 
+        container_name: express-node-app-container
+        ports: 
+          - "4000:4000"
+        env_file:
+          - ./.env
+        depends_on:
+          - postgres
+      postgres:
+        image: postgres
+        restart: always
+        volumes:
+         - postgres-db:/var/lib/postgresql/data #Named volume
+        environment:
+          POSTGRES_USER: root  
+          POSTGRES_PASSWORD: example
+    volumes:
+      mongo-db: 
+      postgres-db:
+    ```
+   - Connect to PostgresSQL:
+
+     ```javascript
+         const express = require("express");
+         const { Client } = require("pg");
+    
+        // init app
+        const PORT = process.env.PORT || 4000;
+        const app = express();
+
+        // connect PostgresSQL
+        const POSTGRES_USER = "root";
+        const POSTGRES_PASSWORD = "example";
+        const DB_PORT = 5432;
+        const DB_HOST = "postgres";
+    
+        const URI = `postgresql://${POSTGRES_PASSWORD}:${POSTGRES_USER}@${DB_HOST}:${DB_PORT}`;
+    
+        const client = new Client({
+        connectionString: URI,
+        });
+
+        client
+        .connect()
+        .then(() => console.log("connected to PostgresSQL db..."))
+        .catch((err) => console.log("failed to connect to PostgresSQL db: ", err));
+    
+        app.get("/", (req, res) => {
+        res.send("<h1>Hi guess who i am :D</h1>");
+        });
+    
+        app.listen(PORT, () => console.log(`Hi Hi! from ${PORT}`));
+    
+    ```
