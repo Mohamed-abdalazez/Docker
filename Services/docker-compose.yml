@@ -7,29 +7,39 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - mongo
+      - postgres
       - redis
-
-  mongo:
-   image: mongo
-   restart: always
-   volumes:
-    - mongo-db:/data/db #Named volume
-   environment:
-     MONGO_INITDB_ROOT_USERNAME: root
-     MONGO_INITDB_ROOT_PASSWORD: example    
-
-  mongo-express:
-    image: mongo-express
+  
+  postgres:
+    image: postgres
     restart: always
-    ports:
-      - 8081:8081
+    volumes:
+     - postgres-db:/var/lib/postgresql/data #Named volume
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/ 
-    depends_on:
-      - mongo
+      POSTGRES_USER: root  
+      POSTGRES_PASSWORD: example
+        
+
+  # mongo:
+  #  image: mongo
+  #  restart: always
+  #  volumes:
+  #   - mongo-db:/data/db #Named volume
+  #  environment:
+  #    MONGO_INITDB_ROOT_USERNAME: root
+  #    MONGO_INITDB_ROOT_PASSWORD: example    
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #     ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/ 
+  #   depends_on:
+  #     - mongo
   redis:
     image: redis
   
@@ -43,3 +53,4 @@ services:
       - node-app
 volumes:
   mongo-db: 
+  postgres-db:
