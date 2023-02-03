@@ -263,15 +263,14 @@ services:
 ## Docker Environments Management
 
 - Docker environment management across multiple environments.
-- The first method and the optimization.
 - Check out the figure.
 <img alt="Docker environment management" src="assets/Docker environment management.png" />
 
 - the command lines in the figure, to be copied if you want
    - ```Run: docker-compose -f docker-compose.dev.yml up -d```
    - ```Run: docker-compose -f docker-compose.prod.yml up -d```
-   - ```Development Run: sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```
-   - ```Production Run: sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d```
+   - ```Development Run: docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```
+   - ```Production Run: docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d```
    - ```docker exec -it express-node-app-container bash```
 
 <a name="desc10"></a>
@@ -279,13 +278,13 @@ services:
 
 - The first solution is that you can create a Dockerfile for each environment.
 - The second solution is that you can create a single Docker file and manage all environments through it.
-- in the last part we faced tow proplems 
+- Let's delve deeper into the second solution.
      -  We have to run ```CMD [ "npm", "start" ]``` in production and ```CMD [ "npm", "run", "start-dev" ]``` in development.
     <br>
     
-    ``` 
-    development:
-    ```
+    
+    - development:
+    
     ```yaml
      version: "3"
      services:
@@ -296,9 +295,9 @@ services:
          - NODE_ENV=development
        command: npm run start-dev
      ``` 
-     ``` 
-    production:
-    ```
+      
+    - production:
+   
     ```yaml
      version: "3"
      services:
@@ -307,9 +306,9 @@ services:
          - NODE_ENV=production
        command: npm run start
      ``` 
-     - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file.
+     - Nodemon is installed in node modules, although we are running the container from the production compose file and not from the development compose file. There are two solutions to this problem.
      
-       - Make a simple check to verify the environment.<br>
+       1. Make a simple check to verify the environment.<br>
  
           <img alt="simple check.png" src="assets/simple check.png" />  <br>
           
@@ -321,12 +320,12 @@ services:
                 else npm install;\
                 fi
                 ```
-                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
+                - ```docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
 
-                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
+                - ```docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
           
        
-       - The Multi-Stage environment.<br>
+       2. The Multi-Stage environment.<br>
          - The Multi-Stage environment is when you separate the Dockerfile for more than one stage.
          - Check out the figure.
          
@@ -357,9 +356,9 @@ services:
                 CMD [ "npm", "start"]
                 ```
                 
-                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
+                - ```docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d --build```
 
-                - ```sudo docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
+                - ```docker-compose -f docker-compose.yml  -f docker-compose.prod.yml  up -d --build```
 
 <a name="desc11"></a>
 ## Docker with different services
@@ -375,9 +374,9 @@ services:
     <img alt="MongoDB & NodeJS & Mongo-Express_4" src="assets/MongoDB & NodeJS & Mongo-Express_4.png" /><br><br>
     
 - Some command lines you have to know here are:
-   - ```sudo docker inspect "name of the container"```, Return low-level information on Docker objects.
-   - ```sudo docker volume ls```, List volumes.
-   - ```sudo docker volume prune```, Remove all unused local volumes.
+   - ```docker inspect "name of the container"```, Return low-level information on Docker objects.
+   - ```docker volume ls```, List volumes.
+   - ```docker volume prune```, Remove all unused local volumes.
    - And always remember that if you use ```--help``` after any utility, you will get more information about all command lines.
    
      - eg. ```docker volume --help```
@@ -406,7 +405,7 @@ services:
     <img alt="addRedisContainer" src="assets/addRedisContainer.png" />
     <br>
     
-    - Now let's run the app, ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
+    - Now let's run the app, ```docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
        
        ```
        Status: Downloaded newer image for redis:latest
@@ -430,7 +429,7 @@ services:
     <img alt="addNginxContainer" src="assets/addNginxContainer.png" />
     <br>
     
-    - Now let's run the app, ```sudo docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
+    - Now let's run the app, ```docker-compose -f docker-compose.yml  -f docker-compose.dev.yml  up -d```, You can see:
        
        ```
         Status: Downloaded newer image for nginx:stable-alpine
