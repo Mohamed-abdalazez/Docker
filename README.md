@@ -24,7 +24,8 @@
 
 
 13. [Docker with Laravel.](#desc12)
-14. [Setup Docker on AWS EC2.](#desc13)
+14. [Setup Docker on AWS EC2 and deploy the node application to the server.](#desc13)
+15. [Push Images to DockerHub.](#desc14)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -529,7 +530,7 @@ services:
     - You can find the code in the ```Laravel Sail``` folder.
 
 <a name="desc13"></a>
-## Setup Docker on AWS EC2
+## Setup Docker on AWS EC2 and deploy the node application to the server.
 
 - Simply:
   - Set up an Ubuntu server using the Amazon Elastic Compute Cloud service.
@@ -542,4 +543,9 @@ services:
       <img alt="EC2_2" src="assets/EC2_2.png" /><br><br>
       <img alt="EC2_1,2" src="assets/EC2_1,2.png" /><br><br>
 
-- In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.    
+
+<a name="desc14"></a>
+## Push Images to DockerHub.
+
+- In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.
+     - Docker hub
