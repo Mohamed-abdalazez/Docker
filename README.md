@@ -533,10 +533,10 @@ services:
 
 - Simply:
   - Set up an Ubuntu server using the Amazon Elastic Compute Cloud service.
-  - Install Docker on our server.
+  - [Install Docker on our server](https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04).
   - Clone the node app from github.
   - run and build docker-compose file.
   - Check the figure for more details.
   
-      <img alt="EC2_1" src="EC2_1.png" /><br><br>
-      <img alt="EC2_2" src="EC2_2.png" /><br><br>
+      <img alt="EC2_1" src="assets/EC2_1.png" /><br><br>
+      <img alt="EC2_2" src="assets/EC2_2.png" /><br><br>
