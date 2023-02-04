@@ -538,4 +538,5 @@ services:
   - run and build docker-compose file.
   - Check the figure for more details.
   
-      <img alt="EC2.png" src="assets/EC2.png" />
+      <img alt="EC2_1" src="EC2_1.png" /><br><br>
+      <img alt="EC2_2" src="EC2_2.png" /><br><br>
