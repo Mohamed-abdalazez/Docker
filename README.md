@@ -14,7 +14,7 @@
 9. [Environment Variables.](#desc8)
 10. [Docker Environments Management.](#desc9)
 11. [Multi-Stage Dockerfile.](#desc10)
-12. [Docker with different services](#desc11)
+12. [Docker with different services.](#desc11)
     - MongoDB.
     - NodeJS.
     - Mongo-Express.
@@ -23,7 +23,8 @@
     - PostgreSQL.
 
 
-13.[Docker with Laravel](#desc12)
+13. [Docker with Laravel.](#desc12)
+14. [Setup Docker on AWS EC2.](#desc13)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -526,3 +527,6 @@ services:
     - ```curl -s https://laravel.build/example-app?with=mysql,redis | bash```, for Linux.
     - After installation is done: Dive in with: ```cd example-app && ./vendor/bin/sail up```
     - You can find the code in the ```Laravel Sail``` folder.
+
+<a name="desc13"></a>
+## Setup Docker on AWS EC2
