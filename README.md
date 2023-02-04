@@ -540,3 +540,4 @@ services:
   
       <img alt="EC2_1" src="assets/EC2_1.png" /><br><br>
       <img alt="EC2_2" src="assets/EC2_2.png" /><br><br>
+      <img alt="EC2_1,2" src="assets/EC2_1,2.png" /><br><br>
