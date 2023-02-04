@@ -541,3 +541,5 @@ services:
       <img alt="EC2_1" src="assets/EC2_1.png" /><br><br>
       <img alt="EC2_2" src="assets/EC2_2.png" /><br><br>
       <img alt="EC2_1,2" src="assets/EC2_1,2.png" /><br><br>
+
+- In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.    
