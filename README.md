@@ -530,3 +530,12 @@ services:
 
 <a name="desc13"></a>
 ## Setup Docker on AWS EC2
+
+- Simply:
+  - Set up an Ubuntu server using the Amazon Elastic Compute Cloud service.
+  - Install Docker on our server.
+  - Clone the node app from github.
+  - run and build docker-compose file.
+  - Check the figure for more details.
+  
+      <img alt="EC2.png" src="assets/EC2.png" />
