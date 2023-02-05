@@ -549,3 +549,4 @@ services:
 
 - In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.
      - Docker hub
+     - AWS
