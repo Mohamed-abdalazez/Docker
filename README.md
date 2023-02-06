@@ -26,6 +26,7 @@
 13. [Docker with Laravel.](#desc12)
 14. [Setup Docker on AWS EC2 and deploy the node application to the server.](#desc13)
 15. [Push Images to DockerHub.](#desc14)
+16. [Load Balancing with Nginx](#desc15)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -558,4 +559,7 @@ services:
      <img alt="pushImageToDokcerHub_2" src="assets/pushImageToDokcerHub_2.png" /><br><br>
      <img alt="pushImageToDokcerHub_3" src="assets/pushImageToDokcerHub_3.png" /><br><br>
       
-      
+
+<a name="desc15"></a>
+## Load Balancing with Nginx.
+
