@@ -548,5 +548,14 @@ services:
 ## Push Images to DockerHub.
 
 - In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.
-     - Docker hub
-     - AWS
+- So the good scenario is that the image should first be pulled from somewhere, and then it should be run on the server.
+    - We can do that using:
+        - Amazon Elastic Container Registry (Amazon ECR)
+        - Docker hub
+- Check the figure for more details.
+
+     <img alt="pushImageToDokcerHub_1" src="assets/pushImageToDokcerHub_1.png" /><br><br>
+     <img alt="pushImageToDokcerHub_2" src="assets/pushImageToDokcerHub_2.png" /><br><br>
+     <img alt="pushImageToDokcerHub_3" src="assets/pushImageToDokcerHub_3.png" /><br><br>
+      
+      
