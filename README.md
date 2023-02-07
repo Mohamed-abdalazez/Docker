@@ -568,8 +568,6 @@ services:
      <img alt="Load Balancing" src="assets/Load Balancing.png" /><br><br>
      <img alt="Load Balancing" src="assets/Load Balancing_1.png" /><br><br>
      <img alt="Load Balancing" src="assets/Load Balancing_2.png" /><br><br>
+     <img alt="Load Balancing" src="assets/Load Balancing_3.png" /><br><br>
      
-     - GIF
      
-     <img alt="Load Balancing" src="assets/nginx.gif" /><br><br>
-
