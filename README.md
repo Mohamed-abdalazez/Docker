@@ -28,6 +28,7 @@
 15. [Push Images to DockerHub.](#desc14)
 16. [Load Balancing with Nginx.](#desc15)
 17. [Automate Docker Deployment.](#desc16)
+18. [How CI/CD Works.](#desc17)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -635,3 +636,12 @@ time="2023-02-07T06:32:23Z" level=debug msg="Scheduled next run: 2023-02-07 06:3
 time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-node-app-container image="mo201/node-app-docker:latest"
 ```
 
+
+<a name="desc17"></a>
+## How CI/CD Works
+
+- CI/CD: Continuous integration (CI) and continuous delivery or deployment (CD)
+- CI/CD is a process that ensures that you will not have problems when adding new features to your application.
+    - In the CI stage, the feature is tested; are all test cases correct, or should it be reconsidered?
+    - If everything is ok, the feature will be merged with the main branch, and it will be ready to go to the next stage, which is called CD.
+    - That's it in brief.
