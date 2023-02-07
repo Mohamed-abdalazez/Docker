@@ -652,3 +652,19 @@ time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-n
 ## Docker Orchestration
 
 -  Docker Orchestration, its management layer, gives you more features than Docker.
+    - It makes the deployment process easier by being responsible for creating and running the servers. You only have to specify the cloud provider and the docker compose file.
+    - Responsible for scaling up or down the application if required.
+    - Create a load balancer and manage the traffic automatically.
+    - The communication between the containers and any external resource is managed automatically.
+    - Detect any error in any container on the server and deal with it.
+    - The update policy is specified.
+    - So we note that the Docker orchestration will manage all of this. 
+        - deployment 
+        - scaling 
+        - networking 
+        - errors 
+        - updates
+     - Examples of Docker orchestration technologies.
+        - [Docker Swarm](https://docs.docker.com/engine/swarm/)
+        - [Kubernetes](https://kubernetes.io/)
+
