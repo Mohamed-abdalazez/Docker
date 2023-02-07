@@ -29,6 +29,7 @@
 16. [Load Balancing with Nginx.](#desc15)
 17. [Automate Docker Deployment.](#desc16)
 18. [How CI/CD Works.](#desc17)
+19. [Docker Orchestration.](#desc18)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -645,3 +646,9 @@ time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-n
     - In the CI stage, the feature is tested; are all test cases correct, or should it be reconsidered?
     - If everything is ok, the feature will be merged with the main branch, and it will be ready to go to the next stage, which is called CD.
     - That's it in brief.
+
+
+<a name="desc18"></a>
+## Docker Orchestration
+
+-  Docker Orchestration, its management layer, gives you more features than Docker.
