@@ -30,6 +30,7 @@
 17. [Automate Docker Deployment.](#desc16)
 18. [How CI/CD Works.](#desc17)
 19. [Docker Orchestration.](#desc18)
+20. [Docker Swarm.](#desc19)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -659,12 +660,16 @@ time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-n
     - Detect any error in any container on the server and deal with it.
     - The update policy is specified.
     - So we note that the Docker orchestration will manage all of this. 
-        - deployment 
-        - scaling 
-        - networking 
-        - errors 
-        - updates
+        - deployment.
+        - scaling. 
+        - networking. 
+        - errors.
+        - updates.
      - Examples of Docker orchestration technologies.
-        - [Docker Swarm](https://docs.docker.com/engine/swarm/)
-        - [Kubernetes](https://kubernetes.io/)
+        - [Docker Swarm.](https://docs.docker.com/engine/swarm/key-concepts/)
+        - [Kubernetes.](https://kubernetes.io/)
+
+
+<a name="desc19"></a>
+## Docker Swarm
 
