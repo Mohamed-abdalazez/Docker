@@ -885,3 +885,6 @@ There are many management and restriction options, of course; see [Docker Docs](
    -  Now let's release a new vision for our app and see the rolling update.
      
       <img alt="new version" src="assets/new version.png" /><br><br>
+
+
+<img alt="Final" src="assets/Final.png" /><br><br>
