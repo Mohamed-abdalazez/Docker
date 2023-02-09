@@ -886,5 +886,7 @@ There are many management and restriction options, of course; see [Docker Docs](
      
       <img alt="new version" src="assets/new version.png" /><br><br>
 
-
-<img alt="Final" src="assets/Final.png" /><br><br>
+<p align="center">
+  Feel free to contribute to the repository if you find something wrong or have a better explanation.
+  <img  width="500px"  src="assets/Final.png" />
+</p>
