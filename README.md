@@ -31,6 +31,7 @@
 18. [How CI/CD Works.](#desc17)
 19. [Docker Orchestration.](#desc18)
 20. [Docker Swarm.](#desc19)
+21. [Rolling Update.](#desc20)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -756,3 +757,126 @@ Commands:
 
 Run 'docker stack COMMAND --help' for more information on a command.
 ```
+
+<a name="desc20"></a>
+## Rolling Update
+- When you want to release a new version of your application and deploy a new version to the server, the server should still be running anyway. so we use a rolling update.
+- Note that the Docker Swarm commands can be used within Docker compose because Docker Swarm is included with Docker. 
+- Now, let's edit Docker Combos a little:
+
+
+```
+version: "3"
+services:
+  node-app: 
+    container_name: express-node-app-container
+    image: mo201/node-app-docker
+    ports: 
+      - "4000:4000"
+    env_file:
+      - ./.env
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+    depends_on:
+      - redis
+      - mongo
+
+  mongo:
+   image: mongo
+   restart: always
+   volumes:
+    - mongo-db:/data/db #Named volume
+   environment:
+     MONGO_INITDB_ROOT_USERNAME: root
+     MONGO_INITDB_ROOT_PASSWORD: example    
+
+  redis:
+    image: redis
+  
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+    - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - node-app
+volumes:
+  mongo-db: 
+  postgres-db:
+
+```
+
+- In the deploy section, you can see:
+
+1. replicas
+   - How many replicas do you want for this service? 
+2. update_config
+   - Configures how the service should be updated. 
+   - parallelism: How many containers are updated at the same time?
+3. restart_policy
+   - Configures if and how to restart containers when they exit. 
+There are many management and restriction options, of course; see [Docker Docs](https://docs.docker.com/compose/compose-file/compose-file-v3/).
+
+- Let's go to the server side.
+
+    - deploy new stack
+    
+    ```
+     ubuntu@ip-172-31-51-54:~/naruto-server$ docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml express-app
+     Ignoring unsupported options: build, restart
+    
+     Ignoring deprecated options:
+
+     container_name: Setting the container name is not supported.
+
+     Creating network express-app_default
+     Creating service express-app_mongo
+     Creating service express-app_nginx
+     Creating service express-app_node-app
+     Creating service express-app_redis
+    ```
+    
+    - list all stacks
+    
+    ``
+    ubuntu@ip-172-31-51-54:~/naruto-server$ docker stack ls
+    NAME          SERVICES
+    express-app   4  
+    ``
+    
+    - all services inside the stack
+    
+    ```
+    ubuntu@ip-172-31-51-54:~/naruto-server$ docker stack services express-app
+    ID             NAME                   MODE         REPLICAS   IMAGE                          PORTS
+    xreuzburf8s6   express-app_mongo      replicated   1/1        mongo:latest                   
+    i3p04051gloz   express-app_nginx      replicated   1/1        nginx:stable-alpine            *:80->80/tcp
+    z15o796dlb5p   express-app_node-app   replicated   4/4        mo201/node-app-docker:latest   *:4000->4000/tcp
+    flt2dby1rj5o   express-app_redis      replicated   1/1        redis:latest                   
+    ```
+    
+    - list all running containers 
+    
+    ```
+    ubuntu@ip-172-31-51-54:~/naruto-server$ docker stack ps express-app
+    ID             NAME                      IMAGE                          NODE              DESIRED STATE   CURRENT STATE           ERROR                       PORTS
+    j90bgqsojw3n   express-app_mongo.1       mongo:latest                   ip-172-31-51-54   Running         Running 6 minutes ago                               
+    zyavh1sh7056   express-app_nginx.1       nginx:stable-alpine            ip-172-31-51-54   Running         Running 7 minutes ago                               
+    040e20btmy9o    \_ express-app_nginx.1   nginx:stable-alpine            ip-172-31-51-54   Shutdown        Failed 7 minutes ago    "task: non-zero exit (1)"   
+    oivkydzu0jdm   express-app_node-app.1    mo201/node-app-docker:latest   ip-172-31-51-54   Running         Running 7 minutes ago                               
+    mqoozc9if55b   express-app_node-app.2    mo201/node-app-docker:latest   ip-172-31-51-54   Running         Running 7 minutes ago                               
+    ohhnom2srsaf   express-app_node-app.3    mo201/node-app-docker:latest   ip-172-31-51-54   Running         Running 7 minutes ago                               
+    v6rn7scd4ex3   express-app_node-app.4    mo201/node-app-docker:latest   ip-172-31-51-54   Running         Running 7 minutes ago                               
+    b43fcx47pfze   express-app_redis.1       redis:latest                   ip-172-31-51-54   Running         Running 7 minutes ago                               
+    ```
+    
+   -  Now let's release a new vision for our app and see the rolling update.
+     
+      <img alt="new version" src="assets/new version.png" /><br><br>
