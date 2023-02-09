@@ -673,3 +673,6 @@ time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-n
 <a name="desc19"></a>
 ## Docker Swarm
 
+- Check out the figure.
+
+<img alt="Docker Swarm.png" src="assets/Docker Swarm.png" /><br><br>
