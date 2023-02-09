@@ -26,7 +26,11 @@
 13. [Docker with Laravel.](#desc12)
 14. [Setup Docker on AWS EC2 and deploy the node application to the server.](#desc13)
 15. [Push Images to DockerHub.](#desc14)
-16. [Load Balancing with Nginx](#desc15)
+16. [Load Balancing with Nginx.](#desc15)
+17. [Automate Docker Deployment.](#desc16)
+18. [How CI/CD Works.](#desc17)
+19. [Docker Orchestration.](#desc18)
+20. [Docker Swarm.](#desc19)
 
 <a name="desc0"></a>
 ## Docker desktop
@@ -546,13 +550,13 @@ services:
 
 
 <a name="desc14"></a>
-## Push Images to DockerHub.
+## Push Images to DockerHub
 
 - In the last part, we found that we were building and running the image on the server, which is a waste of server resources, so we want to build the image somewhere other than the server.
 - So the good scenario is that the image should first be pulled from somewhere, and then it should be run on the server.
     - We can do that using:
-        - Amazon Elastic Container Registry (Amazon ECR)
-        - Docker hub
+        - Amazon Elastic Container Registry (Amazon ECR).
+        - Docker hub.
 - Check the figure for more details.
 
      <img alt="pushImageToDokcerHub_1" src="assets/pushImageToDokcerHub_1.png" /><br><br>
@@ -571,3 +575,104 @@ services:
      <img alt="Load Balancing" src="assets/Load Balancing_3.png" /><br><br>
      
      
+<a name="desc16"></a>
+## Automate Docker Deployment
+
+- When using [Watchtower](https://containrrr.dev/watchtower/), Once you have pushed your image to Docker Hub, the server can pull the changes automatically.
+- Watchtower is itself packaged as a Docker container, so installation is just pulling the ```containrrr/watchtower``` image.
+
+- Run  [Watchtower](https://containrrr.dev/watchtower/) Continer.
+
+```
+ubuntu@ip-172-31-51-54:~/naruto-server$ docker run -d --name watchtower -e WATCHTOWER_TRACE=true -e WATCHTOWER_POLL_INTERVAL=30 -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower express-node-app-container
+Unable to find image 'containrrr/watchtower:latest' locally
+latest: Pulling from containrrr/watchtower
+7e1f4ce8770d: Pull complete 
+cc408d374d64: Pull complete 
+4412f0a27731: Pull complete 
+Digest: sha256:0ca7a88fd0748aa6f32e50b67eb11148cdb989fc595264c2778c85297a2c1abe
+Status: Downloaded newer image for containrrr/watchtower:latest
+1a4c331c4d04caf8831d3ed12068ddad0e29cbb263d8da8716cdfa26be9e305a
+ubuntu@ip-172-31-51-54:~/naruto-server$ sudo docker ps
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS      NAMES
+1a4c331c4d04   containrrr/watchtower   "/watchtower express…"   21 seconds ago   Up 19 seconds   8080/tcp   watchtower
+ubuntu@ip-172-31-51-54:~/naruto-server$ 
+
+```
+
+- Now, once you have pushed the new image to Docker Hub, the server can pull the changes automatically.
+
+
+```
+
+ubuntu@ip-172-31-51-54:~/naruto-server$ sudo docker logs watchtower
+time="2023-02-07T06:30:52Z" level=debug msg="Sleeping for a second to ensure the docker api client has been properly initialized."
+time="2023-02-07T06:30:53Z" level=debug msg="Making sure everything is sane before starting"
+time="2023-02-07T06:30:53Z" level=debug msg="Retrieving running containers"
+time="2023-02-07T06:30:53Z" level=debug msg="There are no additional watchtower containers"
+time="2023-02-07T06:30:53Z" level=debug msg="Watchtower HTTP API skipped."
+time="2023-02-07T06:30:53Z" level=info msg="Watchtower 1.5.3"
+time="2023-02-07T06:30:53Z" level=info msg="Using no notifications"
+time="2023-02-07T06:30:53Z" level=info msg="Only checking containers which name matches \"express-node-app-container\""
+time="2023-02-07T06:30:53Z" level=info msg="Scheduling first run: 2023-02-07 06:31:23 +0000 UTC"
+time="2023-02-07T06:30:53Z" level=info msg="Note that the first check will be performed in 29 seconds"
+time="2023-02-07T06:30:53Z" level=warning msg="Trace level enabled: log will include sensitive information as credentials and tokens"
+time="2023-02-07T06:31:23Z" level=debug msg="Checking containers for updated images"
+time="2023-02-07T06:31:23Z" level=debug msg="Retrieving running containers"
+time="2023-02-07T06:31:23Z" level=info msg="Session done" Failed=0 Scanned=0 Updated=0 notify=no
+time="2023-02-07T06:31:23Z" level=debug msg="Scheduled next run: 2023-02-07 06:31:53 +0000 UTC"
+time="2023-02-07T06:31:53Z" level=debug msg="Checking containers for updated images"
+time="2023-02-07T06:31:53Z" level=debug msg="Retrieving running containers"
+time="2023-02-07T06:31:53Z" level=info msg="Session done" Failed=0 Scanned=0 Updated=0 notify=no
+time="2023-02-07T06:31:53Z" level=debug msg="Scheduled next run: 2023-02-07 06:32:23 +0000 UTC"
+time="2023-02-07T06:32:23Z" level=debug msg="Checking containers for updated images"
+time="2023-02-07T06:32:23Z" level=debug msg="Retrieving running containers"
+time="2023-02-07T06:32:23Z" level=info msg="Session done" Failed=0 Scanned=0 Updated=0 notify=no
+time="2023-02-07T06:32:23Z" level=debug msg="Scheduled next run: 2023-02-07 06:32:53 +0000 UTC"
+
+```
+
+- The image is automatically pulled in this case.
+
+```
+time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-node-app-container image="mo201/node-app-docker:latest"
+```
+
+
+<a name="desc17"></a>
+## How CI/CD Works
+
+- CI/CD: Continuous integration (CI) and continuous delivery or deployment (CD)
+- CI/CD is a process that ensures that you will not have problems when adding new features to your application.
+    - In the CI stage, the feature is tested; are all test cases correct, or should it be reconsidered?
+    - If everything is ok, the feature will be merged with the main branch, and it will be ready to go to the next stage, which is called CD.
+    - That's it in brief.
+
+
+<a name="desc18"></a>
+## Docker Orchestration
+
+-  Docker Orchestration, its management layer, gives you more features than Docker.
+    - It makes the deployment process easier by being responsible for creating and running the servers. You only have to specify the cloud provider and the docker compose file.
+    - Responsible for scaling up or down the application if required.
+    - Create a load balancer and manage the traffic automatically.
+    - The communication between the containers and any external resource is managed automatically.
+    - Detect any error in any container on the server and deal with it.
+    - The update policy is specified.
+    - So we note that the Docker orchestration will manage all of this. 
+        - deployment.
+        - scaling. 
+        - networking. 
+        - errors.
+        - updates.
+     - Examples of Docker orchestration technologies.
+        - [Docker Swarm.](https://docs.docker.com/engine/swarm/key-concepts/)
+        - [Kubernetes.](https://kubernetes.io/)
+
+
+<a name="desc19"></a>
+## Docker Swarm
+
+- Check out the figure.
+
+<img alt="Docker Swarm.png" src="assets/Docker Swarm.png" /><br><br>
