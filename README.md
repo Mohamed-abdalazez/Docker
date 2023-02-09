@@ -676,3 +676,83 @@ time="2023-02-07T07:21:10Z" level=debug msg="Pulling image" container=/express-n
 - Check out the figure.
 
 <img alt="Docker Swarm.png" src="assets/Docker Swarm.png" /><br><br>
+
+- Note that Docker Swarm comes with Docker by default, but by default it is ```inactive```, so you have to activate it as follows:
+
+
+```
+ubuntu@ip-172-31-51-54:~$ docker swarm init
+Swarm initialized: current node (swum4h7tying0puihmos666a7) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-0g8yk6n7gz2i5duoobeobx7gupphd9t7xdw4780g6zgvi0ccfm-bl2b9w9smx5z51bv33rgr0403 172.31.51.54:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+```
+
+- Other command lines in Docker Swarm and their uses:
+
+```
+ubuntu@ip-172-31-51-54:~$ docker swarm --help
+
+Usage:  docker swarm COMMAND
+
+Manage Swarm
+
+Commands:
+  ca          Display and rotate the root CA
+  init        Initialize a swarm
+  join        Join a swarm as a node and/or manager
+  join-token  Manage join tokens
+  leave       Leave the swarm
+  unlock      Unlock swarm
+  unlock-key  Manage the unlock key
+  update      Update the swarm
+
+Run 'docker swarm COMMAND --help' for more information on a command.
+
+```
+
+- To begin using Docker Swarm on the server, the commands begin with ```docker service```; let's list all of them.
+
+```
+ubuntu@ip-172-31-51-54:~$ docker service --help
+
+Usage:  docker service COMMAND
+
+Manage Swarm services
+
+Commands:
+  create      Create a new service
+  inspect     Display detailed information on one or more services
+  logs        Fetch the logs of a service or task
+  ls          List services
+  ps          List the tasks of one or more services
+  rm          Remove one or more services
+  rollback    Revert changes to a service's configuration
+  scale       Scale one or multiple replicated services
+  update      Update a service
+
+Run 'docker service COMMAND --help' for more information on a command.
+```
+
+- To use Docker Swarm, first of all, you have to create a stack that acts like "docker-compose." the commands begin with ```docker stack```; let's list all of them.
+
+```
+ubuntu@ip-172-31-51-54:~$ docker stack --help
+
+Usage:  docker stack COMMAND
+
+Manage Swarm stacks
+
+Commands:
+  config      Outputs the final config file, after doing merges and interpolations
+  deploy      Deploy a new stack or update an existing stack
+  ls          List stacks
+  ps          List the tasks in the stack
+  rm          Remove one or more stacks
+  services    List the services in the stack
+
+Run 'docker stack COMMAND --help' for more information on a command.
+```
