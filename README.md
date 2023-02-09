@@ -1,6 +1,11 @@
 # Docker Practical Course - [Tresmerge](https://www.youtube.com/watch?v=tHP5IWfqPKk&list=PLzNfs-3kBUJnY7Cy1XovLaAkgfjim05RR&index=1)
 
 
+
+<img alt="Covern" src="assets/Cover.png" /><br><br>
+
+
+
 ### Table of content
 
 1. [Docker desktop.](#desc0)
